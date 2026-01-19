@@ -1,6 +1,5 @@
 services:
   postgres:
-    #image: postgres:16-alpine
     image: postgres:18.1
     container_name: n8n-postgres
     restart: unless-stopped
@@ -9,7 +8,6 @@ services:
       - POSTGRES_PASSWORD=n8n_password
       - POSTGRES_DB=n8n
     volumes:
-      #- postgres_data:/var/lib/postgresql/data
       - postgres_data:/var/lib/postgresql
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U n8n -d n8n"]
